@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_favorite_places/helpers/auth.dart';
-import 'package:my_favorite_places/screens/guest_profile_screen.dart';
-import 'package:my_favorite_places/screens/user_settings_screen.dart';
+import '../authentication/auth.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:my_favorite_places/users/user_settings_screen.dart';
+
+import 'guest_profile_screen.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({Key? key}) : super(key: key);

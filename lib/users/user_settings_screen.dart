@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_favorite_places/helpers/auth.dart';
 
 class UserSettingsScreen extends StatefulWidget {
   static const routeName = '/user-settings';

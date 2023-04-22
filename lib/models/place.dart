@@ -15,6 +15,7 @@ class Place extends ChangeNotifier {
   final String placeName;
   final PlaceLocation? location;
   final File image;
+
   final String? notes;
 
   Place(

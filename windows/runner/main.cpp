@@ -27,7 +27,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
   Win32Window::Size size(1280, 720);
+<<<<<<< HEAD
   if (!window.Create(L"journey_jar", origin, size)) {
+=======
+  if (!window.Create(L"my_favorite_places", origin, size)) {
+>>>>>>> 7bb5f6861d86d4ef986018f44a29db3474e3a360
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

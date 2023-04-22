@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:my_favorite_places/screens/navigation_bar_screen.dart';
+import 'package:my_favorite_places/navigation/navigation_bar_screen.dart';
 
-import '../helpers/auth.dart';
+import 'auth.dart';
 
 class AuthScreen extends StatefulWidget {
   static const routeName = '/login-screen';

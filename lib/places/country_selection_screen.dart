@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_favorite_places/screens/places_list_screen.dart';
+import 'package:my_favorite_places/places/places_list_screen.dart';
 
 class CountrySelectionScreen extends StatefulWidget {
   static const routeName = '/country-selection';

@@ -90,12 +90,21 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
+<<<<<<< HEAD
             VALUE "FileDescription", "journey_jar" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "journey_jar" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "journey_jar.exe" "\0"
             VALUE "ProductName", "journey_jar" "\0"
+=======
+            VALUE "FileDescription", "my_favorite_places" "\0"
+            VALUE "FileVersion", VERSION_AS_STRING "\0"
+            VALUE "InternalName", "my_favorite_places" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "my_favorite_places.exe" "\0"
+            VALUE "ProductName", "my_favorite_places" "\0"
+>>>>>>> 7bb5f6861d86d4ef986018f44a29db3474e3a360
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

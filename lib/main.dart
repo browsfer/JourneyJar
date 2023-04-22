@@ -1,22 +1,22 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:my_favorite_places/providers/navigation_bar_provider.dart';
-import 'package:my_favorite_places/screens/auth_screen.dart';
-import 'package:my_favorite_places/screens/navigation_bar_screen.dart';
+import 'package:my_favorite_places/navigation/navigation_bar_provider.dart';
+import 'package:my_favorite_places/authentication/auth_screen.dart';
+import 'package:my_favorite_places/navigation/navigation_bar_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import './providers/my_fav_places.dart';
+import 'places/my_fav_places.dart';
 
-import 'package:my_favorite_places/helpers/auth.dart';
-import 'package:my_favorite_places/screens/country_selection_screen.dart';
-import 'package:my_favorite_places/screens/place_detail_screen.dart';
-import 'package:my_favorite_places/screens/user_settings_screen.dart';
+import 'package:my_favorite_places/authentication/auth.dart';
+import 'package:my_favorite_places/places/country_selection_screen.dart';
+import 'package:my_favorite_places/places/place_detail_screen.dart';
+import 'package:my_favorite_places/users/user_settings_screen.dart';
 
-import '../screens/places_list_screen.dart';
-import '../screens/add_place_screen.dart';
+import 'places/places_list_screen.dart';
+import 'places/add_place_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

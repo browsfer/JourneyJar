@@ -296,7 +296,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.journeyJar;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.myFavoritePlaces;
+>>>>>>> 7bb5f6861d86d4ef986018f44a29db3474e3a360
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -424,7 +428,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.journeyJar;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.myFavoritePlaces;
+>>>>>>> 7bb5f6861d86d4ef986018f44a29db3474e3a360
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -446,7 +454,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.journeyJar;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.myFavoritePlaces;
+>>>>>>> 7bb5f6861d86d4ef986018f44a29db3474e3a360
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

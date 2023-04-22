@@ -4,7 +4,7 @@ import 'package:location/location.dart';
 
 import '../helpers/location_helper.dart';
 
-import '../screens/map_screen.dart';
+import '../places/map_screen.dart';
 
 class LocationInput extends StatefulWidget {
   final Function? selectLocation;

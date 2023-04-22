@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:my_favorite_places/models/place.dart';
-import 'package:my_favorite_places/screens/places_list_screen.dart';
+import 'package:my_favorite_places/places/places_list_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/my_fav_places.dart';
+import 'my_fav_places.dart';
 
 import '../widgets/location_input.dart';
 import '../widgets/image_input.dart';
