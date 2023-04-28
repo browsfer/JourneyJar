@@ -27,7 +27,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
         children: <Widget>[
           Hero(
             tag: selectedPlace.id,
-            child: Container(
+            child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.20,
               width: double.infinity,
               child: Image.file(
@@ -54,6 +54,14 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
           ),
           const SizedBox(height: 20),
           const Spacer(),
+          SizedBox(
+            height: selectedPlace.notes.length + 0.0,
+            width: double.infinity,
+            child: Card(
+              color: Colors.blueGrey.shade100,
+              child: Text(selectedPlace.notes),
+            ),
+          ),
           ElevatedButton.icon(
             onPressed: () {
               Navigator.of(context).push(
@@ -63,7 +71,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
             },
             icon: const Icon(Icons.map),
             label: const Text('Show on map.'),
-          )
+          ),
         ],
       ),
     );

@@ -36,7 +36,7 @@ class _LocationInputState extends State<LocationInput> {
       final currentLocation = await Location().getLocation();
       getMapImage(currentLocation.latitude, currentLocation.longitude);
     } catch (error) {
-      return;
+      return print(error);
     }
   }
 
@@ -50,7 +50,7 @@ class _LocationInputState extends State<LocationInput> {
       );
       getMapImage(selectLocation?.latitude, selectLocation?.longitude);
     } catch (error) {
-      return;
+      return print(error);
     }
   }
 

@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_favorite_places/models/place.dart';
 import 'package:provider/provider.dart';
 
+import '../navigation/navigation_bar_provider.dart';
 import 'my_fav_places.dart';
 
 import '../widgets/location_input.dart';
@@ -36,23 +38,29 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
   }
 
   Future<void> _savePlace() async {
-    !_formKey.currentState!.validate();
-    if (_titleController.text.isEmpty ||
-        _pickedImage!.path.isEmpty ||
-        _pickedLocation!.longitude == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          duration: Duration(seconds: 1),
-          content: Text('Something is missing!'),
-        ),
-      );
-    } else {
-      await Provider.of<MyFavoritePlaces>(context, listen: false).addPlace(
-        _pickedImage,
-        _titleController.text,
-        _pickedLocation,
-        _notesController.text,
-      );
+    _formKey.currentState!.validate();
+    try {
+      if (_titleController.text.isEmpty ||
+          _pickedImage!.path.isEmpty ||
+          _pickedLocation!.longitude == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            duration: Duration(seconds: 1),
+            content: Text('Something is missing!'),
+          ),
+        );
+      } else {
+        await Provider.of<MyFavoritePlaces>(context, listen: false).addPlace(
+          _pickedImage,
+          _titleController.text,
+          _pickedLocation,
+          _notesController.text,
+        );
+        Provider.of<NavigationBarProvider>(context, listen: false).changeIndex =
+            1;
+      }
+    } on PlatformException catch (e) {
+      print(e.message);
     }
   }
 
@@ -97,8 +105,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                         controller: _notesController,
                         maxLines: 4,
                         decoration: const InputDecoration(
-                          label:
-                              Text('Write your notes here'), //Adding notes here
+                          label: Text('Write your notes here'),
                         ),
                       ),
                     )

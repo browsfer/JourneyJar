@@ -58,11 +58,10 @@ class _PlacesListScreenState extends State<PlacesListScreen> {
                 builder: (ctx, myFavPlaces, ch) => myFavPlaces.items.isEmpty
                     ? ch!
                     : GridView.count(
-                        childAspectRatio: 3 / 2,
+                        childAspectRatio: 2 / 1.5,
                         mainAxisSpacing: 15,
-                        crossAxisSpacing: 10,
-                        padding: const EdgeInsets.all(10),
-                        crossAxisCount: 2,
+                        padding: const EdgeInsets.all(5),
+                        crossAxisCount: 1,
                         children: List.generate(myFavPlaces.items.length, (i) {
                           return AnimationConfiguration.staggeredGrid(
                             position: i,

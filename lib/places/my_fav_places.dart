@@ -21,7 +21,7 @@ class MyFavoritePlaces extends ChangeNotifier {
     File? image,
     String placeName,
     PlaceLocation? pickedLocation,
-    String? userNotes,
+    String userNotes,
   ) async {
     final address = await LocationHelper.getLocationAddress(
       latitude: pickedLocation?.latitude,
@@ -33,11 +33,12 @@ class MyFavoritePlaces extends ChangeNotifier {
       address: address,
     );
     final newPlace = Place(
-        id: DateTime.now().toString(),
-        placeName: placeName,
-        image: image!,
-        location: updatedLocation,
-        notes: userNotes);
+      id: DateTime.now().toString(),
+      placeName: placeName,
+      image: image!,
+      location: updatedLocation,
+      notes: userNotes,
+    );
     _items.insert(0, newPlace);
     notifyListeners();
     DBHelper.insert('user_places', {
@@ -56,14 +57,16 @@ class MyFavoritePlaces extends ChangeNotifier {
     _items = dbData
         .map(
           (val) => Place(
-              id: val['id'],
-              placeName: val['placeName'],
-              image: File(val['image'] as String),
-              location: PlaceLocation(
-                latitude: val['loc_lat'],
-                longitude: val['loc_lng'],
-                address: val['address'],
-              )),
+            id: val['id'],
+            placeName: val['placeName'],
+            image: File(val['image'] as String),
+            location: PlaceLocation(
+              latitude: val['loc_lat'],
+              longitude: val['loc_lng'],
+              address: val['address'],
+            ),
+            notes: val['userNotes'],
+          ),
         )
         .toList();
     notifyListeners();

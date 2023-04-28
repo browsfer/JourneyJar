@@ -15,13 +15,12 @@ class Place extends ChangeNotifier {
   final String placeName;
   final PlaceLocation? location;
   final File image;
-
-  final String? notes;
+  final String notes;
 
   Place(
       {required this.id,
       required this.placeName,
       this.location,
       required this.image,
-      this.notes});
+      required this.notes});
 }
