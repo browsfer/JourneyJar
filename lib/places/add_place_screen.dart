@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:my_favorite_places/models/place.dart';
-import 'package:my_favorite_places/places/places_list_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'my_fav_places.dart';
@@ -12,6 +11,8 @@ import '../widgets/image_input.dart';
 
 class AddPlaceScreen extends StatefulWidget {
   static const routeName = '/add-place';
+
+  const AddPlaceScreen({super.key});
 
   @override
   _AddPlaceScreenState createState() => _AddPlaceScreenState();

@@ -9,7 +9,7 @@ import '../places/map_screen.dart';
 class LocationInput extends StatefulWidget {
   final Function? selectLocation;
 
-  const LocationInput(this.selectLocation);
+  const LocationInput(this.selectLocation, {super.key});
 
   @override
   State<LocationInput> createState() => _LocationInputState();

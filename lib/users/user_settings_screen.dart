@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class UserSettingsScreen extends StatefulWidget {
   static const routeName = '/user-settings';
 
+  const UserSettingsScreen({super.key});
+
   @override
   _UserSettingsScreenState createState() => _UserSettingsScreenState();
 }

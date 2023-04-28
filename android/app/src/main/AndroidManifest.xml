@@ -4,7 +4,10 @@
    <application
         android:label="journey_jar"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCmRC-yV6nHaosNxlS__xlk84O0CfT8YwE"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

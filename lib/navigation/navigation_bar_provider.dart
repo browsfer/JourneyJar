@@ -21,7 +21,7 @@ class NavigationBarProvider with ChangeNotifier {
     NavbarItem(
       label: 'My places',
       icon: LineIcons.alternateMapMarker,
-      screen: AddPlaceScreen(),
+      screen: const AddPlaceScreen(),
     ),
     NavbarItem(
       label: 'User Profile',

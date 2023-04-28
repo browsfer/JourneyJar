@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../authentication/auth.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:my_favorite_places/users/user_settings_screen.dart';
 
@@ -13,9 +12,11 @@ class UserProfileScreen extends StatefulWidget {
   _UserProfilePageState createState() => _UserProfilePageState();
 }
 
-class _UserProfilePageState extends State<UserProfileScreen> {
-  final User? _isLogged = FirebaseAuth.instance.currentUser;
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
+final User? _isLogged = FirebaseAuth.instance.currentUser;
+
+class _UserProfilePageState extends State<UserProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +66,10 @@ class _UserProfilePageState extends State<UserProfileScreen> {
                         Text(
                           'John Doe',
                           style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(LineIcons.edit),
                         ),
                         const Spacer(),
                         IconButton(
@@ -134,7 +139,7 @@ class _UserProfilePageState extends State<UserProfileScreen> {
                     children: [
                       IconButton(
                         iconSize: 40,
-                        onPressed: () => Auth().signOut(),
+                        onPressed: () => _auth.signOut(),
                         icon: const Icon(LineIcons.alternateSignOut),
                       ),
                     ],

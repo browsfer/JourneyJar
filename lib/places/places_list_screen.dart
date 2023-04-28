@@ -57,81 +57,73 @@ class _PlacesListScreenState extends State<PlacesListScreen> {
                 ),
                 builder: (ctx, myFavPlaces, ch) => myFavPlaces.items.isEmpty
                     ? ch!
-                    : AnimationLimiter(
-                        child: AnimationLimiter(
-                          child: GridView.count(
-                            childAspectRatio: 3 / 2,
-                            mainAxisSpacing: 15,
-                            crossAxisSpacing: 10,
-                            padding: const EdgeInsets.all(10),
-                            crossAxisCount: 2,
-                            children:
-                                List.generate(myFavPlaces.items.length, (i) {
-                              return AnimationConfiguration.staggeredGrid(
-                                position: i,
-                                columnCount: 3,
-                                child: ScaleAnimation(
-                                  child: FadeInAnimation(
-                                    child: GridTile(
-                                      footer: Container(
-                                        padding: const EdgeInsets.all(8.0),
-                                        decoration: BoxDecoration(
-                                          color: Colors.black.withOpacity(0.7),
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Text(
-                                          myFavPlaces.items[i].placeName,
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                    : GridView.count(
+                        childAspectRatio: 3 / 2,
+                        mainAxisSpacing: 15,
+                        crossAxisSpacing: 10,
+                        padding: const EdgeInsets.all(10),
+                        crossAxisCount: 2,
+                        children: List.generate(myFavPlaces.items.length, (i) {
+                          return AnimationConfiguration.staggeredGrid(
+                            position: i,
+                            columnCount: 3,
+                            child: ScaleAnimation(
+                              child: FadeInAnimation(
+                                child: GridTile(
+                                  footer: Container(
+                                    padding: const EdgeInsets.all(8.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.7),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Text(
+                                      myFavPlaces.items[i].placeName,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      child: Hero(
-                                        flightShuttleBuilder: (
-                                          flightContext,
-                                          animation,
-                                          flightDirection,
-                                          fromHeroContext,
-                                          toHeroContext,
-                                        ) {
-                                          return Image.file(
-                                            myFavPlaces.items[i].image,
-                                            fit: BoxFit.cover,
-                                          );
-                                        },
-                                        tag: myFavPlaces.items[i].id,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.of(context).pushNamed(
-                                              PlaceDetailScreen.routeName,
-                                              arguments:
-                                                  myFavPlaces.items[i].id,
-                                            );
-                                          },
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                const BorderRadius.only(
-                                              topLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                            ),
-                                            child: Image.file(
-                                              myFavPlaces.items[i].image,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
+                                    ),
+                                  ),
+                                  child: Hero(
+                                    flightShuttleBuilder: (
+                                      flightContext,
+                                      animation,
+                                      flightDirection,
+                                      fromHeroContext,
+                                      toHeroContext,
+                                    ) {
+                                      return Image.file(
+                                        myFavPlaces.items[i].image,
+                                        fit: BoxFit.cover,
+                                      );
+                                    },
+                                    tag: myFavPlaces.items[i].id,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).pushNamed(
+                                          PlaceDetailScreen.routeName,
+                                          arguments: myFavPlaces.items[i].id,
+                                        );
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          bottomRight: Radius.circular(20),
+                                        ),
+                                        child: Image.file(
+                                          myFavPlaces.items[i].image,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              );
-                            }),
-                          ),
-                        ),
+                              ),
+                            ),
+                          );
+                        }),
                       ),
               ),
       ),

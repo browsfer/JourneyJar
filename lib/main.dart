@@ -1,4 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_favorite_places/navigation/navigation_bar_provider.dart';
 import 'package:my_favorite_places/authentication/auth_screen.dart';
@@ -10,7 +11,6 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'places/my_fav_places.dart';
 
-import 'package:my_favorite_places/authentication/auth.dart';
 import 'package:my_favorite_places/places/country_selection_screen.dart';
 import 'package:my_favorite_places/places/place_detail_screen.dart';
 import 'package:my_favorite_places/users/user_settings_screen.dart';
@@ -21,13 +21,15 @@ import 'places/add_place_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyFavPlaces());
+  runApp(JourneyJar());
 }
 
-class MyFavPlaces extends StatelessWidget {
-  final Color primaryColor = Color.fromRGBO(37, 52, 71, 1);
-  final Color secondaryColor = Color.fromRGBO(196, 216, 226, 1);
-  final Color accentColor = Color.fromRGBO(255, 168, 0, 1);
+class JourneyJar extends StatelessWidget {
+  final Color primaryColor = const Color.fromRGBO(37, 52, 71, 1);
+  final Color secondaryColor = const Color.fromRGBO(196, 216, 226, 1);
+  final Color accentColor = const Color.fromRGBO(255, 168, 0, 1);
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -96,24 +98,24 @@ class MyFavPlaces extends StatelessWidget {
           curve: Curves.easeIn,
           splash: Image.asset('assets/images/splash_photo.png'),
           nextScreen: StreamBuilder(
-            stream: Auth().authStateChanges,
+            stream: _auth.authStateChanges(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return const NavigationBarScreen();
               } else {
-                return AuthScreen();
+                return const AuthScreen();
               }
             },
           ),
         ),
         routes: {
           PlacesListScreen.routeName: (ctx) => PlacesListScreen(),
-          AddPlaceScreen.routeName: (ctx) => AddPlaceScreen(),
+          AddPlaceScreen.routeName: (ctx) => const AddPlaceScreen(),
           PlaceDetailScreen.routeName: (ctx) => PlaceDetailScreen(),
           CountrySelectionScreen.routeName: (ctx) => CountrySelectionScreen(),
-          UserSettingsScreen.routeName: (ctx) => UserSettingsScreen(),
-          AuthScreen.routeName: (ctx) => AuthScreen(),
-          NavigationBarScreen.routeName: (ctx) => NavigationBarScreen(),
+          UserSettingsScreen.routeName: (ctx) => const UserSettingsScreen(),
+          AuthScreen.routeName: (ctx) => const AuthScreen(),
+          NavigationBarScreen.routeName: (ctx) => const NavigationBarScreen(),
         },
       ),
     );
