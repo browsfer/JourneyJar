@@ -18,7 +18,7 @@ import 'package:my_favorite_places/users/user_settings_screen.dart';
 import 'places/places_list_screen.dart';
 import 'places/add_place_screen.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(JourneyJar());

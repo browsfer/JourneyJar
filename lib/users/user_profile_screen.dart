@@ -19,22 +19,19 @@ final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final User? _isLogged = FirebaseAuth.instance.currentUser;
 
 class _UserProfilePageState extends State<UserProfileScreen> {
+  String? userEmail;
   String? userName;
   TextEditingController controller = TextEditingController();
 
-  Future<void> _getUserName() async {
+  Future<void> _getUserData() async {
     final currentUserId = _auth.currentUser!.uid;
+
     await _firestore.collection('users').doc(currentUserId).get().then((value) {
       setState(() {
         userName = value.data()!['username'].toString();
+        userEmail = value.data()!['email'].toString();
       });
     });
-  }
-
-  @override
-  void initState() {
-    _getUserName();
-    super.initState();
   }
 
   Future changeUserName() async {
@@ -127,7 +124,7 @@ class _UserProfilePageState extends State<UserProfileScreen> {
                     child: Row(
                       children: [
                         Text(
-                          userName!,
+                          userName ?? '',
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         IconButton(
@@ -149,7 +146,7 @@ class _UserProfilePageState extends State<UserProfileScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      'johndoe@example.com',
+                      userEmail ?? '',
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
