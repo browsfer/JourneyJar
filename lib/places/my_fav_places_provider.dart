@@ -54,6 +54,7 @@ class MyFavoritePlaces extends ChangeNotifier {
 
   Future<void> fetchPlaces() async {
     final dbData = await DBHelper.getData('user_places');
+
     _items = dbData
         .map(
           (val) => Place(

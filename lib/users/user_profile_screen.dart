@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:my_favorite_places/users/user_settings_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'guest_profile_screen.dart';
 
@@ -13,10 +14,72 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 final User? _isLogged = FirebaseAuth.instance.currentUser;
 
 class _UserProfilePageState extends State<UserProfileScreen> {
+  String? userName;
+  TextEditingController controller = TextEditingController();
+
+  Future<void> _getUserName() async {
+    final currentUserId = _auth.currentUser!.uid;
+    await _firestore.collection('users').doc(currentUserId).get().then((value) {
+      setState(() {
+        userName = value.data()!['username'].toString();
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    _getUserName();
+    super.initState();
+  }
+
+  Future changeUserName() async {
+    final userId = _auth.currentUser!.uid;
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Change your nickname"),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            decoration: const InputDecoration(hintText: "Type something here"),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text("Cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text("Save"),
+              onPressed: () {
+                setState(() {
+                  userName = controller.text;
+                });
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+    try {
+      await _firestore
+          .collection('users')
+          .doc(userId)
+          .update({'username': controller.text});
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,12 +127,12 @@ class _UserProfilePageState extends State<UserProfileScreen> {
                     child: Row(
                       children: [
                         Text(
-                          'John Doe',
+                          userName!,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         IconButton(
-                          onPressed: () {},
-                          icon: Icon(LineIcons.edit),
+                          onPressed: changeUserName,
+                          icon: const Icon(LineIcons.edit),
                         ),
                         const Spacer(),
                         IconButton(

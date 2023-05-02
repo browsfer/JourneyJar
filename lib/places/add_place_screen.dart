@@ -6,7 +6,7 @@ import 'package:my_favorite_places/models/place.dart';
 import 'package:provider/provider.dart';
 
 import '../navigation/navigation_bar_provider.dart';
-import 'my_fav_places.dart';
+import 'my_fav_places_provider.dart';
 
 import '../widgets/location_input.dart';
 import '../widgets/image_input.dart';

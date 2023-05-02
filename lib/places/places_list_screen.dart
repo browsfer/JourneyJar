@@ -6,7 +6,7 @@ import 'package:my_favorite_places/places/place_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 import './add_place_screen.dart';
-import 'my_fav_places.dart';
+import 'my_fav_places_provider.dart';
 
 class PlacesListScreen extends StatefulWidget {
   static const routeName = '/places-list-screen';
@@ -16,8 +16,6 @@ class PlacesListScreen extends StatefulWidget {
 }
 
 class _PlacesListScreenState extends State<PlacesListScreen> {
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

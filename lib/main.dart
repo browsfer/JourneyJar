@@ -9,7 +9,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'places/my_fav_places.dart';
+import 'places/my_fav_places_provider.dart';
 
 import 'package:my_favorite_places/places/country_selection_screen.dart';
 import 'package:my_favorite_places/places/place_detail_screen.dart';

@@ -3,7 +3,7 @@ import 'package:my_favorite_places/places/map_screen.dart';
 
 import 'package:provider/provider.dart';
 
-import 'my_fav_places.dart';
+import 'my_fav_places_provider.dart';
 
 class PlaceDetailScreen extends StatefulWidget {
   static const routeName = '/place-detail-screen';
